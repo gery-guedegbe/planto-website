@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useState } from "react";
+import { motion, useInView } from "motion/react";
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronRight } from "lucide-react";
 
 import plant_1 from "@assets/images/plant-1.png";
@@ -57,9 +59,19 @@ const HeroCard = () => {
     if (emblaApi) emblaApi.scrollTo(index);
   };
 
+  const ref = useRef(null);
+
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <div className="mx-auto w-full max-w-md rounded-3xl border border-white/30 bg-white/5 p-4 text-white shadow-xl backdrop-blur-md sm:max-w-xl lg:max-w-sm lg:rounded-[45px] lg:p-6">
-      <div className="overflow-hidden" ref={emblaRef}>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="mx-auto w-full max-w-md rounded-3xl border border-white/30 bg-white/5 p-4 text-white shadow-xl backdrop-blur-md sm:max-w-xl lg:max-w-sm lg:rounded-[45px] lg:p-6"
+    >
+      <div className="cursor-grab overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {plants.map((plant) => (
             <div
@@ -75,16 +87,16 @@ const HeroCard = () => {
                 />
 
                 <div className="mt-6 flex w-full items-start justify-between gap-4 px-2 sm:px-4">
-                  <div className="space-y-2 lg:space-y-3">
-                    <p className="text-sm font-light text-white/70 sm:text-base lg:text-lg">
+                  <div className="select-nones space-y-2 lg:space-y-3">
+                    <p className="text-sm font-light text-white/70 select-none sm:text-base lg:text-lg">
                       {plant.desc}
                     </p>
 
-                    <h3 className="text-xl leading-tight font-semibold sm:text-2xl lg:text-3xl">
+                    <h3 className="text-xl leading-tight font-semibold select-none sm:text-2xl lg:text-3xl">
                       {plant.name}
                     </h3>
 
-                    <button className="mt-2 rounded-lg border border-white px-4 py-1.5 text-sm font-medium text-white transition hover:bg-white hover:text-black sm:text-base lg:mt-3 lg:px-6 lg:py-2 lg:text-lg">
+                    <button className="mt-2 cursor-pointer rounded-lg border border-white px-4 py-1.5 text-sm font-medium text-white transition hover:bg-white hover:text-black sm:text-base lg:mt-3 lg:px-6 lg:py-2 lg:text-lg">
                       Buy Now
                     </button>
                   </div>
@@ -114,7 +126,7 @@ const HeroCard = () => {
           ></button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

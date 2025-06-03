@@ -44,9 +44,7 @@ const HeroSection = () => {
           </div>
         </FadeInWhenVisible>
 
-        <FadeInWhenVisible direction="left">
-          <HeroCard />
-        </FadeInWhenVisible>
+        <HeroCard />
       </div>
 
       <FadeInWhenVisible direction="up">

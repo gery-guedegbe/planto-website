@@ -65,14 +65,14 @@ const OurBest02 = () => {
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="cursor-grab overflow-hidden" ref={emblaRef}>
           <div className="flex gap-6">
             {slides.map((slide) => (
               <div
                 key={slide.id}
                 className="flex min-w-full flex-shrink-0 justify-center"
               >
-                <div className="flex w-[80vw] max-w-5xl flex-col items-center gap-8 rounded-[32px] border border-white/20 bg-white/5 p-4 text-center text-white shadow-md backdrop-blur-md md:flex-row md:justify-between md:p-12 lg:w-full lg:text-start">
+                <div className="flex w-[80vw] max-w-5xl flex-col items-center gap-8 rounded-[32px] border border-white/20 bg-white/5 p-4 text-center text-white shadow-md backdrop-blur-md sm:text-start md:flex-row md:justify-between md:p-12 lg:w-[90vw] lg:text-start">
                   <div className="max-w-[180px] md:max-w-[320px] lg:max-w-[400px]">
                     <Image
                       src={slide.image}
@@ -82,7 +82,7 @@ const OurBest02 = () => {
                     />
                   </div>
 
-                  <div className="">
+                  <div className="select-none">
                     <h3 className="mb-4 text-xl font-semibold lg:text-2xl">
                       {slide.title}
                     </h3>

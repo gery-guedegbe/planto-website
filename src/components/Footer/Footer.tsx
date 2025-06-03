@@ -63,8 +63,8 @@ const Footer = () => {
           </FadeInWhenVisible>
         </div>
 
-        <FadeInWhenVisible direction="left">
-          <div className="col-span-4 lg:col-span-1">
+        <div className="col-span-4 lg:col-span-1">
+          <FadeInWhenVisible direction="left">
             <h3 className="text-base font-medium text-white lg:text-xl">
               For Every Update.
             </h3>
@@ -74,8 +74,8 @@ const Footer = () => {
             <p className="mt-6 text-[16px] font-light text-white/70 lg:mt-24 lg:text-[20px]">
               planto © all right reserve
             </p>
-          </div>
-        </FadeInWhenVisible>
+          </FadeInWhenVisible>
+        </div>
       </div>
     </footer>
   );
