@@ -32,7 +32,7 @@ Maquette originale disponible sur Figma Community :
 1. **Cloner le dépôt :**
 
 ```bash
-git clone https://github.com/votre-utilisateur/planto.git
+git https://github.com/gery-guedegbe/planto-website.git
 cd planto-website
 ```
 
